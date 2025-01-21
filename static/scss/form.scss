@@ -7,7 +7,23 @@
         margin: 10px auto;
     }
 
+    .debug {
+        background-color: #00000029;
+        padding: 5%;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        margin: 5% 0;
 
+        .account-info {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+        }
+    }
 
     form {
         width: 100%;

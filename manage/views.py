@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Item
-from django.contrib.auth.decorators import login_required
 from .forms import RegForm
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     Items = Item.objects.all()

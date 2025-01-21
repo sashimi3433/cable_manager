@@ -3,6 +3,22 @@
   text-align: center;
   margin: 10px auto;
 }
+.form .debug {
+  background-color: rgba(0, 0, 0, 0.1607843137);
+  padding: 5%;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin: 5% 0;
+}
+.form .debug .account-info {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+}
 .form form {
   width: 100%;
   margin: 0 auto;
