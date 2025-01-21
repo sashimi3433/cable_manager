@@ -57,6 +57,16 @@
   margin: 20px 0;
   border-radius: 15px;
 }
+.form form ul {
+  background-color: #dc3444;
+  color: white;
+  border-radius: 15px;
+  padding: 15px;
+  margin-bottom: 40px;
+}
+.form form ul li {
+  margin: 10px 0;
+}
 
 .btn {
   padding: 10px;

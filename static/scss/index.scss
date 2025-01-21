@@ -6,16 +6,11 @@
     padding: 15px;
 
     .cards {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 40px;
-        justify-content: center;
-        align-items: center;
 
         .card {
             border: solid 2px #333;
             padding: 15px;
-            width: 25vw;
+            width: 50%;
             text-align: center;
             margin: 20px auto;
             text-align: start;
@@ -28,6 +23,10 @@
                 border-radius: 5px;
                 border: 1px solid #0000002d;
                 margin: 10px 0;
+            }
+
+            @include media(sp) {
+                width: 100%;
             }
         }
     }

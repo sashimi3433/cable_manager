@@ -19,13 +19,13 @@
         </div>
         <nav>
             <ul>
-                <li>
-                    <a href="{% url "manage:new" %}">製品登録</a>
-                </li>
                 {% if user.is_authenticated %}
-                    <li class='nav-time'>
-                        <span class='navbar-text'>{{ user }}</span>
+                    <li>
+                        <a href="{% url "manage:new" %}">製品登録</a>
                     </li>
+                    {% comment %} <li class='nav-time'>
+                        <span class='navbar-text'>{{ user }}</span>
+                    </li> {% endcomment %}
                     <li>
                         <form action='{% url "logout" %}' method='post' name='logout'>
                             {% csrf_token %}
@@ -35,6 +35,9 @@
                 {% else %}
                     <li>
                         <a href='{% url "login" %}' class='login nav-link'>ログイン</a>
+                    </li>
+                    <li>
+                        <a href='{% url "signup" %}' class='login nav-link'>サインアップ</a>
                     </li>
                 {% endif %}
             </ul>
