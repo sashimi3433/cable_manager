@@ -3,6 +3,69 @@
 {% block content %}
 
 <main class="detail">
+    <h3 class="title">商品名</h3>
+    <p>{{ item.name }}</p>
+
+    <h3>購入日</h3>
+    {% if item.date != null %}
+        <p>{{ item.date }}</p>
+    {% else %}
+        <p>不明</p>
+    {% endif %}
+
+    <h3>メーカー</h3>
+    {% if item.Manufacturer != null %}
+        <p>{{ item.Manufacturer }}</p>
+    {% else %}
+        <p>不明</p>
+    {% endif %}
+
+    <h3>販売店</h3>
+    {% if item.Store != null %}
+        <p>{{ item.Store }}</p>
+    {% else %}
+        <p>不明</p>
+    {% endif %}
+
+    <h3>PD</h3>
+    {% if item.PD == True %}
+        <p class="TorF true">対応</p>
+    {% else %}
+        <p class="TorF false">非対応</p>
+    {% endif %}
+
+    <h3>thunderbolt</h3>
+    {% if  item.thunderbolt == null%}
+    <p class="TorF false">非対応</p>
+    {% else %}
+    <p class="TorF true">thunderbolt {{ item.thunderbolt }}</p>
+    {% endif %}
+
+    <h3>長さ</h3>
+    {% if item.length != null %}
+        <p>{{ item.length }} m</p>
+    {% else %}
+        <p>不明</p>
+    {% endif %}
+
+    <h3>ワット数</h3>
+    {% if item.watt != null %}
+        <p>{{ item.watt }} W</p>
+    {% else %}
+        <p>不明</p>
+    {% endif %}
+
+    <h3 class="title"><budoux-ja>コメント</budoux-ja></h3>
+    {% if item.comment != null %}
+        <p class="comment">{{ item.comment }}</p>
+    {% else %}
+        <p class="comment">なし</p>
+    {% endif %}
+
+    <h3>共有用QR</h3>
+    <div id="qrcode"></div>
+
+    <a href='{% url "manage:index" %}' class="btn">一覧に戻る</a>
 </main>
 
 {% endblock %}

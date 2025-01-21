@@ -1,1 +1,34 @@
 @import "variables";
+
+.index {
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 15px;
+
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 40px;
+        justify-content: center;
+        align-items: center;
+
+        .card {
+            border: solid 2px #333;
+            padding: 15px;
+            width: 25vw;
+            text-align: center;
+            margin: 20px auto;
+            text-align: start;
+            font-size: 1rem;
+
+            ul {
+                font-size: .8rem;
+                padding: 10px;
+                background-color: #7b7b7b0b;
+                border-radius: 5px;
+                border: 1px solid #0000002d;
+                margin: 10px 0;
+            }
+        }
+    }
+}

@@ -1,5 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 <main class="index">
+    <div class="cards">
+        {% for Item in Items %}
+            {% if Item.user.id == User_id %}
+                <a href='{% url "manage:detail" Item.id %}'>
+                <div class="card">
+                        <p>{{ Item.name }}</p>
+                        <ul>
+                            <li>メーカー：{{ Item.Manufacturer }}</li>
+                            <li>長さ：{{ Item.length }} m</li>
+                            <li>ワット数：{{ Item.watt }} W</li>
+                        </ul>
+                    </div>
+                </a>
+            {% endif %}
+        {% endfor %}
+    </div>
 </main>
 {% endblock %}

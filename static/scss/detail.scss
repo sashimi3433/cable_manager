@@ -1,1 +1,83 @@
 @import "variables";
+
+.detail {
+    text-align: center;
+
+    .btn {
+        padding: 10px 15px;
+        border: 2px solid #333;
+        display: block;
+        text-align: center;
+        transition: all .25s;
+        background-color: #fff;
+        margin-top: 15px;
+
+        &:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+    }
+
+    .edit {
+        border: 2px solid $success;
+        color: $success;
+
+        &:hover {
+            background-color: $success;
+        }
+    }
+
+    .delete {
+        border: 2px solid $danger;
+        color: $danger;
+
+        &:hover {
+            background-color: $danger;
+        }
+    }
+
+    h3 {
+        margin: 25px 0 5px 0;
+    }
+
+    p {
+        background-color: #fff;
+        padding: 10px;
+        border: solid #333 2px;
+    }
+
+    .comment {
+        background-color: #fff;
+        padding: 10px;
+        height: 10vh;
+        border: solid 2px #333;
+        text-align: start;
+    }
+
+    #qrcode {
+        background-color: #fff;
+        padding: 25px;
+        width: fit-content;
+        margin: 0 auto;
+        border-radius: 15px;
+    }
+
+    .TorF {
+        border-radius: 5px;
+        width: fit-content;
+        display: block;
+        margin: 0 auto;
+        color: #fff;
+        padding: 5px;
+        border: none;
+    }
+
+    .true {
+        background-color: $success;
+    }
+
+    .false {
+        background-color: $danger;
+    }
+}

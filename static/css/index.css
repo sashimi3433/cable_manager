@@ -1,1 +1,29 @@
-/*# sourceMappingURL=index.css.map */
+.index {
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 15px;
+}
+.index .cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  justify-content: center;
+  align-items: center;
+}
+.index .cards .card {
+  border: solid 2px #333;
+  padding: 15px;
+  width: 25vw;
+  text-align: center;
+  margin: 20px auto;
+  text-align: start;
+  font-size: 1rem;
+}
+.index .cards .card ul {
+  font-size: 0.8rem;
+  padding: 10px;
+  background-color: rgba(123, 123, 123, 0.0431372549);
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1764705882);
+  margin: 10px 0;
+}/*# sourceMappingURL=index.css.map */

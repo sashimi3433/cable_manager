@@ -1,1 +1,69 @@
-/*# sourceMappingURL=detail.css.map */
+.detail {
+  text-align: center;
+}
+.detail .btn {
+  padding: 10px 15px;
+  border: 2px solid #333;
+  display: block;
+  text-align: center;
+  transition: all 0.25s;
+  background-color: #fff;
+  margin-top: 15px;
+}
+.detail .btn:hover {
+  background-color: #333;
+  color: #fff;
+}
+.detail .edit {
+  border: 2px solid #198753;
+  color: #198753;
+}
+.detail .edit:hover {
+  background-color: #198753;
+}
+.detail .delete {
+  border: 2px solid #dc3444;
+  color: #dc3444;
+}
+.detail .delete:hover {
+  background-color: #dc3444;
+}
+.detail h3 {
+  margin: 25px 0 5px 0;
+}
+.detail p {
+  background-color: #fff;
+  padding: 10px;
+  border: solid #333 2px;
+}
+.detail .comment {
+  background-color: #fff;
+  padding: 10px;
+  height: 10vh;
+  border: solid 2px #333;
+  text-align: start;
+}
+.detail #qrcode {
+  background-color: #fff;
+  padding: 25px;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 0 auto;
+  border-radius: 15px;
+}
+.detail .TorF {
+  border-radius: 5px;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: block;
+  margin: 0 auto;
+  color: #fff;
+  padding: 5px;
+  border: none;
+}
+.detail .true {
+  background-color: #198753;
+}
+.detail .false {
+  background-color: #dc3444;
+}/*# sourceMappingURL=detail.css.map */
