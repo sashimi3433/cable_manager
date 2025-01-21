@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ケーブルマネージャ</title>
+    <link rel="stylesheet" href="https://unpkg.com/destyle.css@4.0.1/destyle.css">
+    <meta http-equiv="Cache-Control" content="no-cache">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'css/index.css' %}" rel="stylesheet">
+    <link href="{% static 'css/detail.css' %}" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <a href="{% url "manage:index" %}">ケーブルマネージャー</a>
+        </div>
+    </header>
+
+    {% if message is not defined %}
+        <div class="message">
+            <p>{{ message }}</p>
+        </div>
+    {% endif %}
+    {% block content %}
+    {% endblock %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script type="text/javascript">
+    new QRCode(document.getElementById("qrcode"), "{{ request.build_absolute_uri }}");
+    </script>
+</body>
+</html>

@@ -1,1 +1,70 @@
 @import "variables";
+
+@font-face {
+    font-family: "LINE Seed JP";
+    src:
+        url("../fonts/LINE/LINESeedJP_OTF_Rg.woff2") format("woff2"
+        );
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "LINE Seed JP";
+    src:
+        url("../fonts/LINE/LINESeedJP_OTF_Bd.woff2") format("woff2");
+    font-weight: 900;
+    font-style: normal;
+}
+
+body {
+    font-family: $font;
+}
+
+main {
+    max-width: 1000px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+header {
+    background-color: #fff;
+    padding: 20px;
+    width: 100%;
+    position: sticky;
+    top: 0;
+    display: flex;
+
+    .logo {
+        margin-right: auto;
+        font-weight: bold;
+    }
+
+    ul {
+        color: #00000084;
+        display: flex;
+        gap: 20px;
+
+        li {
+            a {
+                transition: all .3s;
+
+                &:hover {
+                    color: #333;
+                }
+            }
+        }
+    }
+}
+
+.message {
+    padding: 15px 20px;
+    width: 100%;
+    background-color: #198753;
+    color: white;
+    margin-bottom: 15px;
+}

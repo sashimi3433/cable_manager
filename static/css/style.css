@@ -1,1 +1,57 @@
-/*# sourceMappingURL=style.css.map */
+@font-face {
+  font-family: "LINE Seed JP";
+  src: url("../fonts/LINE/LINESeedJP_OTF_Rg.woff2") format("woff2");
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: "LINE Seed JP";
+  src: url("../fonts/LINE/LINESeedJP_OTF_Bd.woff2") format("woff2");
+  font-weight: 900;
+  font-style: normal;
+}
+body {
+  font-family: "TT Norms Pro", "LINE Seed JP", "Helvetica Neue", Arial, Poppins, "Noto Sans JP", sans-serif;
+}
+
+main {
+  max-width: 1000px;
+  padding: 15px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+header {
+  background-color: #fff;
+  padding: 20px;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  display: flex;
+}
+header .logo {
+  margin-right: auto;
+  font-weight: bold;
+}
+header ul {
+  color: rgba(0, 0, 0, 0.5176470588);
+  display: flex;
+  gap: 20px;
+}
+header ul li a {
+  transition: all 0.3s;
+}
+header ul li a:hover {
+  color: #333;
+}
+
+.message {
+  padding: 15px 20px;
+  width: 100%;
+  background-color: #198753;
+  color: white;
+  margin-bottom: 15px;
+}/*# sourceMappingURL=style.css.map */
