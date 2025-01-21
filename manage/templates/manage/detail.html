@@ -66,6 +66,7 @@
     <div id="qrcode"></div>
 
     <a href='{% url "manage:index" %}' class="btn">一覧に戻る</a>
+    <a href='{% url "manage:delete" item.id %}' class="btn delete">削除する</a>
 </main>
 
 {% endblock %}
