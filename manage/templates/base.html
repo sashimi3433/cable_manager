@@ -10,12 +10,32 @@
     <link href="{% static 'css/style.css' %}" rel="stylesheet">
     <link href="{% static 'css/index.css' %}" rel="stylesheet">
     <link href="{% static 'css/detail.css' %}" rel="stylesheet">
+    <link href="{% static 'css/form.css' %}" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="logo">
             <a href="{% url "manage:index" %}">ケーブルマネージャー</a>
         </div>
+        <nav>
+            <ul>
+                {% if user.is_authenticated %}
+                    <li class='nav-time'>
+                        <span class='navbar-text'>{{ user }}</span>
+                    </li>
+                    <li>
+                        <form action='{% url "logout" %}' method='post' name='logout'>
+                            {% csrf_token %}
+                            <a href="javascript:logout.submit()">ログアウト</a>
+                        </form>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href='{% url "login" %}' class='login nav-link'>ログイン</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
     </header>
 
     {% if message is not defined %}

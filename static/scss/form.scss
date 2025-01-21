@@ -1,0 +1,81 @@
+@import "variables";
+
+.form {
+    h1 {
+        font-size: 2rem;
+        text-align: center;
+        margin: 10px auto;
+    }
+
+
+
+    form {
+        width: 100%;
+        margin: 0 auto;
+
+        input,
+        select,
+        textarea {
+            border: solid 2px #333;
+
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            margin: 5px 0 25px 0;
+
+            &:focus {
+                outline: none;
+            }
+        }
+
+        textarea {
+            text-align: start;
+            height: 10vh;
+            resize: vertical;
+        }
+
+        [type="number"]::-webkit-outer-spin-button,
+        [type="number"]::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+
+        .errorlist {
+            display: none;
+        }
+
+        .error-msg {
+            background-color: $danger;
+            padding: 15px 20px;
+            text-align: center;
+            color: #fff;
+            margin: 20px 0;
+            border-radius: 15px;
+        }
+    }
+}
+
+.btn {
+    padding: 10px;
+    border: solid 2px #333;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+    transition: all .25s;
+    display: block;
+
+    &:hover {
+        background-color: #333;
+        color: white;
+    }
+}
+
+.logout {
+    width: 25%;
+    margin: 0 auto;
+    padding: 15px;
+    text-align: center;
+
+    @include media(sp) {
+        width: 100%;
+    }
+}
