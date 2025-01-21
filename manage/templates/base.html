@@ -19,6 +19,9 @@
         </div>
         <nav>
             <ul>
+                <li>
+                    <a href="{% url "manage:new" %}">製品登録</a>
+                </li>
                 {% if user.is_authenticated %}
                     <li class='nav-time'>
                         <span class='navbar-text'>{{ user }}</span>
