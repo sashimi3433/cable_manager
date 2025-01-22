@@ -119,17 +119,14 @@
                     ]
                 });
 
-                // キャンセルされていた場合、何もしない
                 if (isCancelled) {
-                    console.log('書き込みがキャンセルされました。');
                     return;
                 }
 
-                // 書き込み成功
-                alert('NFCタグにURLを書き込みました！');
+                alert('NFCタグにURLを書き込みました。');
             } catch (error) {
                 if (isCancelled) {
-                    console.log('キャンセルに伴うエラー。問題ありません。');
+                    return;
                 } else {
                     console.error('NFC書き込みエラー:', error);
                     alert('NFCタグの書き込みに失敗しました。');
