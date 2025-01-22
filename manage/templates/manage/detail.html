@@ -79,7 +79,14 @@
         if ('NDEFReader' in window) {
             try {
                 const ndef = new NDEFReader();
-                await ndef.write(url);
+                await ndef.write({
+                    records: [
+                        {
+                            recordType: "url", // URLの書き込み形式を指定
+                            data: url
+                        }
+                    ]
+                });
                 alert('NFCタグにURLを書き込みました！');
             } catch (error) {
                 console.error('NFC書き込みエラー:', error);
