@@ -58,6 +58,12 @@ header {
                 }
             }
         }
+
+        .nav-user {
+            @include media(sp) {
+                display: none;
+            }
+        }
     }
 }
 

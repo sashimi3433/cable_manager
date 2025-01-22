@@ -23,9 +23,9 @@
                     <li>
                         <a href="{% url "manage:new" %}">製品登録</a>
                     </li>
-                    {% comment %} <li class='nav-time'>
+                    <li class='nav-user'>
                         <span class='navbar-text'>{{ user }}</span>
-                    </li> {% endcomment %}
+                    </li>
                     <li>
                         <form action='{% url "logout" %}' method='post' name='logout'>
                             {% csrf_token %}

@@ -47,6 +47,11 @@ header ul li a {
 header ul li a:hover {
   color: #333;
 }
+@media screen and (max-width: 600px) {
+  header ul .nav-user {
+    display: none;
+  }
+}
 
 .message {
   padding: 15px 20px;
