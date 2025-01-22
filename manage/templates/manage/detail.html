@@ -77,20 +77,71 @@
         const url = "{{ request.build_absolute_uri }}";
 
         if ('NDEFReader' in window) {
+            let ndef; // NDEFReaderインスタンスをスコープ外で保持
+            let isCancelled = false; // キャンセルフラグを用意
+
             try {
-                const ndef = new NDEFReader();
+                // ポップアップ表示
+                const popup = document.createElement('div');
+                popup.id = 'nfc-popup';
+                popup.style.position = 'fixed';
+                popup.style.top = '50%';
+                popup.style.left = '50%';
+                popup.style.transform = 'translate(-50%, -50%)';
+                popup.style.padding = '20px';
+                popup.style.backgroundColor = 'white';
+                popup.style.boxShadow = '0 0 10px rgba(0, 0, 0, 0.2)';
+                popup.style.zIndex = '1000';
+                popup.innerHTML = `
+                    <p>タグをかざしてください...</p>
+                    <button id="close-popup" style="margin-top: 10px;">キャンセル</button>
+                `;
+                document.body.appendChild(popup);
+
+                // キャンセルボタンの挙動
+                document.getElementById('close-popup').addEventListener('click', () => {
+                    isCancelled = true; // キャンセルフラグを立てる
+                    if (ndef) {
+                        ndef = null; // NDEFReaderインスタンスをリセット
+                    }
+                    document.body.removeChild(popup); // ポップアップを閉じる
+                });
+
+                // NDEFReaderの初期化
+                ndef = new NDEFReader();
                 await ndef.write({
                     records: [
                         {
-                            recordType: "url", // URLの書き込み形式を指定
+                            recordType: "url",
                             data: url
                         }
                     ]
                 });
+
+                // キャンセルされていた場合、何もしない
+                if (isCancelled) {
+                    console.log('書き込みがキャンセルされました。');
+                    return;
+                }
+
+                // 書き込み成功
                 alert('NFCタグにURLを書き込みました！');
             } catch (error) {
-                console.error('NFC書き込みエラー:', error);
-                alert('NFCタグの書き込みに失敗しました。');
+                if (isCancelled) {
+                    console.log('キャンセルに伴うエラー。問題ありません。');
+                } else {
+                    console.error('NFC書き込みエラー:', error);
+                    alert('NFCタグの書き込みに失敗しました。');
+                }
+            } finally {
+                // ポップアップを閉じる（存在すれば）
+                const popup = document.getElementById('nfc-popup');
+                if (popup) {
+                    document.body.removeChild(popup);
+                }
+
+                // NDEFReaderインスタンスをリセット
+                ndef = null;
             }
         } else {
             alert('お使いのブラウザはWeb NFC APIに対応していません。');
