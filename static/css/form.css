@@ -46,9 +46,6 @@
 .form form [type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
-.form form .errorlist {
-  display: none;
-}
 .form form .error-msg {
   background-color: #dc3444;
   padding: 15px 20px;
@@ -58,28 +55,21 @@
   border-radius: 15px;
 }
 .form form ul {
-  background-color: #dc3444;
-  color: white;
+  background-color: rgba(0, 0, 0, 0.137254902);
   border-radius: 15px;
   padding: 15px;
-  margin-bottom: 40px;
+  margin: 30px 0;
+  margin-top: 0;
+  font-size: 0.9rem;
 }
-.form form ul li {
-  margin: 10px 0;
+.form form .errorlist {
+  margin-bottom: 0;
+  color: #dc3444;
+  padding: 0;
+  background-color: #fff;
 }
-
-.btn {
-  padding: 10px;
-  border: solid 2px #333;
-  width: 100%;
-  text-align: center;
-  margin-top: 15px;
-  transition: all 0.25s;
-  display: block;
-}
-.btn:hover {
-  background-color: #333;
-  color: white;
+.form form .errorlist:first-of-type {
+  display: none;
 }
 
 .logout {

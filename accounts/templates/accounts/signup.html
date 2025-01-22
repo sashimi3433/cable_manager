@@ -3,6 +3,7 @@
 <main class="form">
     <h1>サインアップ</h1>
     <form method="post">
+        {{ form.errors }}
         {% csrf_token %}
             {{ form.as_p }}
         <button type="submit" class="btn">サインアップ</button>

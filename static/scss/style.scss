@@ -74,3 +74,18 @@ header {
     color: white;
     margin-bottom: 15px;
 }
+
+.btn {
+    padding: 10px;
+    border: solid 2px #333;
+    width: 100%;
+    text-align: center;
+    margin-top: 15px;
+    transition: all .25s;
+    display: block;
+
+    &:hover {
+        background-color: #333;
+        color: white;
+    }
+}

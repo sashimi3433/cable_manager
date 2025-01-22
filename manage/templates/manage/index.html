@@ -2,22 +2,33 @@
 {% block content %}
 <main class="index">
 
-    {% if  %}{% endif %}
-    <div class="cards">
-        {% for Item in Items %}
-            {% if Item.user.id == User_id %}
-                <a href='{% url "manage:detail" Item.id %}'>
-                <div class="card">
-                        <p>{{ Item.name }}</p>
-                        <ul>
-                            <li>メーカー：{{ Item.Manufacturer }}</li>
-                            <li>長さ：{{ Item.length }} m</li>
-                            <li>ワット数：{{ Item.watt }} W</li>
-                        </ul>
-                    </div>
-                </a>
-            {% endif %}
-        {% endfor %}
+    {% if request.user.is_authenticated %}
+        <div class="cards">
+            {% for Item in Items %}
+                {% if Item.user.id == User_id %}
+                    <a href='{% url "manage:detail" Item.id %}'>
+                    <div class="card">
+                            <p>{{ Item.name }}</p>
+                            <ul>
+                                <li>メーカー：{{ Item.Manufacturer }}</li>
+                                <li>長さ：{{ Item.length }} m</li>
+                                <li>ワット数：{{ Item.watt }} W</li>
+                            </ul>
+                        </div>
+                    </a>
+                {% endif %}
+            {% endfor %}
+        </div>
+    {% else %}
+
+    <div class="box">
+        <h1>未ログインです</h1>
+        <p>このページはログイン時にしか利用できません。</p>
+        <a href="{% url "login" %}" class="btn">ログイン</a>
+        <a href="{% url "signup" %}" class="text-link">サインアップ</a>
     </div>
+
+
+    {% endif %}
 </main>
 {% endblock %}

@@ -13,6 +13,6 @@ class CustomUserCreationForm(UserCreationForm):
         labels={
             'username':'ユーザーネーム',
             'email':'メールアドレス',
-            'パスワード':'ユーザーネーム',
-            'パスワード (確認用)':'ユーザーネーム',
+            'password1':'パスワード',
+            'password2':'パスワード (確認用)',
         }
