@@ -7,6 +7,7 @@ class Item(models.Model):
     user = models.ForeignKey(CustomUser,on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add=True)
     modified = models.DateTimeField(auto_now=True)
+    image = models.ImageField(upload_to="images", verbose_name='画像', null=True, blank=True)
     date = models.DateField(null=True, blank=True)
     Manufacturer = models.CharField(max_length=25, null=True, blank=True)
     Store = models.CharField(max_length=25, null=True, blank=True)

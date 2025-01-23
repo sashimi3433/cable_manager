@@ -4,7 +4,7 @@
 <main class="form">
     <h1>製品登録</h1>
 
-    <form action="{% url 'manage:create' %}" method="post" class="form">
+    <form action="{% url 'manage:create' %}" method="post" class="form" enctype="multipart/form-data">
         {% csrf_token %}
         {% if regForm.non_field_errors %}
             <div class="error-msg">

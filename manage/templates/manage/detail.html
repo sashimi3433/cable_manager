@@ -3,6 +3,12 @@
 {% block content %}
 
 <main class="detail">
+    {% if item.image %}
+    <a href="{{ item.image.url }}">
+        <img class="detail-img" src="{{ item.image.url }}" alt="製品画像" />
+    </a>
+    {% endif %}
+
     <h3 class="title">商品名</h3>
     <p>{{ item.name }}</p>
 
@@ -142,7 +148,7 @@
                 ndef = null;
             }
         } else {
-            alert('お使いのブラウザはWeb NFC APIに対応していません。');
+            alert('お使いのブラウザはWeb NFC APIに対応していません。\n対応ブラウザはChrome Andord、Android Opera、Samsung Internet、WebView Androidです');
         }
     });
 </script>

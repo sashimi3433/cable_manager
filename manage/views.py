@@ -42,14 +42,13 @@ def new(request):
 @login_required
 def create(request):
     if request.method == 'POST':
-        regForm = RegForm(request.POST)
+        regForm = RegForm(request.POST, request.FILES)
         if regForm.is_valid():
             reg = regForm.save(commit=False)
-            reg.user = request.user  # ログインしているユーザーをセット
+            reg.user = request.user
             reg.save()
             return redirect('manage:detail', id=reg.id)
         else:
-            # フォームが無効な場合、エラーメッセージを含めてフォームを再表示
             return render(request, 'manage/add.html', {'regForm': regForm})
     else:
         regForm = RegForm()
@@ -70,7 +69,7 @@ def edit(request, id):
 def update(request, id):
     if request.method == 'POST':
         item = get_object_or_404(Item, pk=id)
-        regForm = RegForm(request.POST, instance=item)
+        regForm = RegForm(request.POST, request.FILES, instance=item,)
         if regForm.is_valid():
             item.save()
             return redirect('manage:detail', id=item.id)

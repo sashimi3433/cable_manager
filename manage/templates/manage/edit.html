@@ -3,7 +3,7 @@
 
 <main class="form">
 
-    <form action="{% url 'manage:update' item.id %}" method="post" class="form">
+    <form action="{% url 'manage:update' item.id %}" method="post" class="form" enctype="multipart/form-data">
         {% csrf_token %}
         {{ regForm }}
         <button type="submit" class="btn">更新</button>
