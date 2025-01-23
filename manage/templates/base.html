@@ -21,6 +21,9 @@
             <ul>
                 {% if user.is_authenticated %}
                     <li>
+                        <a href="{% url "search:search" %}">検索</a>
+                    </li>
+                    <li>
                         <a href="{% url "manage:new" %}">製品登録</a>
                     </li>
                     <li class='nav-user'>
