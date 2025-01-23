@@ -82,10 +82,18 @@
 <script>
     document.getElementById('write-nfc').addEventListener('click', async () => {
         const url = "{{ request.build_absolute_uri }}";
+        const id = "{{ item.id }}"; // DjangoテンプレートからIDを取得
+        let isCancelled = false;
+        let isWriting = false;
 
         if ('NDEFReader' in window) {
-            let ndef; // NDEFReaderインスタンスをスコープ外で保持
-            let isCancelled = false; // キャンセルフラグを用意
+            if (isWriting) {
+                alert('現在書き込み処理が進行中です。完了またはキャンセルをお待ちください。');
+                return;
+            }
+            isWriting = true;
+
+            let ndef;
 
             try {
                 // ポップアップ表示
@@ -105,52 +113,60 @@
                 `;
                 document.body.appendChild(popup);
 
-                // キャンセルボタンの挙動
+                // キャンセルボタン
                 document.getElementById('close-popup').addEventListener('click', () => {
-                    isCancelled = true; // キャンセルフラグを立てる
+                    isCancelled = true;
                     if (ndef) {
-                        ndef = null; // NDEFReaderインスタンスをリセット
+                        try {
+                            ndef.abort(); // 書き込みを安全に停止
+                        } catch (error) {
+                            console.warn('キャンセル処理中にエラーが発生しました:', error);
+                        }
                     }
                     document.body.removeChild(popup); // ポップアップを閉じる
                 });
 
-                // NDEFReaderの初期化
+                // NDEFReader初期化と書き込み
                 ndef = new NDEFReader();
                 await ndef.write({
                     records: [
                         {
                             recordType: "url",
-                            data: url
+                            data: url // URLの書き込み
+                        },
+                        {
+                            recordType: "text",
+                            data: id // IDの書き込み
                         }
                     ]
                 });
 
                 if (isCancelled) {
-                    return;
+                    alert('書き込みがキャンセルされました。');
+                } else {
+                    alert('NFCタグへの書き込みが完了しました！');
                 }
-
-                alert('NFCタグにURLを書き込みました。');
             } catch (error) {
                 if (isCancelled) {
-                    return;
+                    alert('書き込みがキャンセルされました。');
                 } else {
                     console.error('NFC書き込みエラー:', error);
-                    alert('NFCタグの書き込みに失敗しました。');
+                    alert('NFCタグへの書き込みに失敗しました。');
                 }
             } finally {
-                // ポップアップを閉じる（存在すれば）
+                // 状態リセット
+                isCancelled = false;
+                isWriting = false;
                 const popup = document.getElementById('nfc-popup');
                 if (popup) {
                     document.body.removeChild(popup);
                 }
-
-                // NDEFReaderインスタンスをリセット
-                ndef = null;
             }
         } else {
-            alert('お使いのブラウザはWeb NFC APIに対応していません。\n対応ブラウザはChrome Andord、Android Opera、Samsung Internet、WebView Androidです');
+            alert('お使いのブラウザはWeb NFC APIに対応していません。\n対応ブラウザ: Chrome Android, Samsung Internet, Opera Mobile');
         }
     });
 </script>
+
 
 {% endblock %}
