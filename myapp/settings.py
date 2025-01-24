@@ -57,6 +57,11 @@ MIDDLEWARE = [
     'axes.middleware.AxesMiddleware',
 ]
 
+MIDDLEWARE_CLASSES = (
+    'django-block-tor.blocktor.BlockTorMiddleware'
+)
+
+
 AUTHENTICATION_BACKENDS = [
     'axes.backends.AxesBackend',
     'django.contrib.auth.backends.ModelBackend',
@@ -125,6 +130,8 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
 
 
 # Internationalization
