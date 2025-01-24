@@ -6,12 +6,25 @@
     {% if debug %}
     <div class="debug">
         <div class="account-info">
-            <h3>テストアカウント</h3>
-            <p>ユーザーネーム：user</p>
-            <p>パスワード：pass</p>
+            <h3>デモアカウント0</h3>
+            <p>ユーザーネーム:user</p>
+            <p>パスワード:pass</p>
         </div>
+        <div class="account-info">
+            <h3>デモアカウント1</h3>
+            <p>ユーザーネーム:user1</p>
+            <p>パスワード:pass</p>
+        </div>
+        <div class="account-info">
+            <h3>デモアカウント2</h3>
+            <p>ユーザーネーム:user2</p>
+            <p>パスワード:pass</p>
+        </div>
+
     </div>
     {% endif %}
+    <p class="caution">5回連続でパスワードを間違えると、アカウントにロックがかかります。</p>
+    <p class="caution">もしパスワードを間違えた場合2時間後再度試すか、他のアカウントを使用してください。</p>
     <form action='{% url "login" %}' method='post'>
         {% csrf_token %}
         <input type='hidden' name='next' value='{{ next }}'/>

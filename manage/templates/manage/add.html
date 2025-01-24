@@ -15,13 +15,6 @@
             <div class="form-group">
                 {{ field.label_tag }}
                 {{ field }}
-                {% if field.errors %}
-                    <div class="error-msg">
-                        {% for error in field.errors %}
-                            <p>{{ error }}</p>
-                        {% endfor %}
-                    </div>
-                {% endif %}
             </div>
         {% endfor %}
         <button type="submit" class="btn">作成する</button>

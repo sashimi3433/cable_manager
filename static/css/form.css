@@ -19,12 +19,26 @@
   border-radius: 15px;
   text-align: center;
 }
+@media screen and (max-width: 1000px) {
+  .form .debug {
+    flex-wrap: wrap;
+  }
+}
+.form .caution {
+  color: #dc3444;
+  text-align: center;
+  margin: 20px;
+}
 .form .search.results {
   margin-top: 60px;
   background-color: rgba(0, 0, 0, 0.0392156863);
   padding: 20px;
   border-radius: 20px;
   border: #333 solid 2px;
+}
+.form .search.results p {
+  text-align: center;
+  margin: 20px;
 }
 .form .search.results h2 {
   text-align: center;
@@ -68,14 +82,6 @@
 .form form [type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
-.form form .error-msg {
-  background-color: #dc3444;
-  padding: 15px 20px;
-  text-align: center;
-  color: #fff;
-  margin: 20px 0;
-  border-radius: 15px;
-}
 .form form ul {
   background-color: rgba(0, 0, 0, 0.137254902);
   border-radius: 15px;
@@ -100,7 +106,7 @@
   padding: 15px;
   text-align: center;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
   .logout {
     width: 100%;
   }

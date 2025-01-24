@@ -47,7 +47,7 @@ header ul li a {
 header ul li a:hover {
   color: #333;
 }
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
   header ul .nav-user {
     display: none;
   }

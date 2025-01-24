@@ -3,6 +3,7 @@ from .models import Item
 from .forms import RegForm
 from django.contrib.auth.decorators import login_required
 
+@login_required
 def index(request):
     Items = Item.objects.all()
     user_id = request.user.id

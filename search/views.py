@@ -16,6 +16,7 @@ def search(request):
 def results(request):
     query = request.GET.get('q', '').strip()  # 検索クエリを取得
     selected_manufacturer = request.GET.get('manufacturer', '').strip()  # メーカー選択を取得
+    user_id = request.user.id
 
     # 初期値を設定
     results = Item.objects.all()
@@ -38,5 +39,6 @@ def results(request):
         'results': results,
         'manufacturers': manufacturers,
         'selected_manufacturer': selected_manufacturer,
+        'User_id': user_id,
     }
     return render(request, 'search/search.html', context)

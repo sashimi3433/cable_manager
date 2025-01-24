@@ -23,13 +23,6 @@
         <a href="{% url "manage:new" %}" class="btn">アイテムを追加</a>
     {% else %}
 
-    <div class="box">
-        <h1>未ログインです</h1>
-        <p>このページはログイン時にしか利用できません。</p>
-        <a href="{% url "login" %}" class="btn">ログイン</a>
-        <a href="{% url "signup" %}" class="text-link">サインアップ</a>
-    </div>
-
 
     {% endif %}
 </main>

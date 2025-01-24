@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'axes',
 ]
 
 MIDDLEWARE = [
@@ -53,6 +54,20 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'axes.middleware.AxesMiddleware',
+]
+
+AUTHENTICATION_BACKENDS = [
+    'axes.backends.AxesBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]
+
+AXES_FAILURE_LIMIT = 5 # ログイン試行回数
+AXES_COOLOFF_TIME = 2 # 自動でロックを解除するまでの時間(単位は時間)
+AXES_ONLY_USER_FAILURES = True # Trueにすることでロック対象をIPアドレスではなくユーザ名で判断
+AXES_RESET_ON_SUCCESS = True # ログイン成功したらログイン失敗回数をリセットする
+AXES_META_PRECEDENCE_ORDER = [
+    'HTTP_X_FORWARDED_FOR', # リバースプロキシを使った場合でも利用できるようにする
 ]
 
 ROOT_URLCONF = 'myapp.urls'
